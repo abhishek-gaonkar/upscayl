@@ -2,20 +2,22 @@ import { customWidthAtom, useCustomWidthAtom } from "@/atoms/userSettingsAtom";
 import { useAtom } from "jotai";
 import React, { useState } from "react";
 import { Input } from "../ui/input";
+import { useTranslations } from "next-intl";
 
 export function CustomResolutionInput() {
   const [useCustomWidth, setUseCustomWidth] = useAtom(useCustomWidthAtom);
   const [customWidth, setCustomWidth] = useAtom(customWidthAtom);
 
+  const t_infos = useTranslations("App.Infos.CUSTOM_INPUT_RESOLUTION");
+
   return (
     <div>
       <div className="flex flex-col gap-1">
-        <p className="text-sm font-medium">CUSTOM OUTPUT WIDTH</p>
+        <p className="text-sm font-medium">{t_infos("WIDTH")}</p>
         <p className="text-xs text-base-content/80">
-          <b>REQUIRES RESTART</b>
+          <b>{t_infos("RESTART")}</b>
           <br />
-          Use a custom width for the output images. The height will be adjusted
-          automatically. Enabling this will override the scale setting.
+          {t_infos("CUSTOM_WIDTH_TIP")}
         </p>
       </div>
       <div className="mt-2 flex items-center gap-2">

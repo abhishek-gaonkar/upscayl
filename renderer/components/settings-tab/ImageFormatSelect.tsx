@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 type ImageFormatSelectProps = {
   batchMode: boolean;
   saveImageAs: string;
@@ -9,10 +11,12 @@ export function ImageFormatSelect({
   saveImageAs,
   setExportType,
 }: ImageFormatSelectProps) {
+  const t_infos = useTranslations("App.Infos.IMAGE_FORMAT");
+
   return (
     <div className="flex flex-col gap-2">
       <div className="flex flex-row gap-1">
-        <p className="text-sm font-medium">SAVE IMAGE AS</p>
+        <p className="text-sm font-medium">{t_infos("SAVE_AS")}</p>
         {/* <p className="badge-primary badge text-[10px] font-medium">
           EXPERIMENTAL
         </p> */}
@@ -25,21 +29,21 @@ export function ImageFormatSelect({
             className={`btn ${saveImageAs === "png" && "btn-primary"}`}
             onClick={() => setExportType("png")}
           >
-            PNG
+            {t_infos("PNG")}
           </button>
           {/* JPG */}
           <button
             className={`btn ${saveImageAs === "jpg" && "btn-primary"}`}
             onClick={() => setExportType("jpg")}
           >
-            JPG
+            {t_infos("JPG")}
           </button>
           {/* WEBP */}
           <button
             className={`btn ${saveImageAs === "webp" && "btn-primary"}`}
             onClick={() => setExportType("webp")}
           >
-            WEBP
+            {t_infos("WEBP")}
           </button>
         </div>
       </div>

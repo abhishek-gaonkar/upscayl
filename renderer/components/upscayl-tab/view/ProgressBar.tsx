@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Spinner from "../../icons/Spinner";
 import Logo from "@/components/icons/Logo";
+import { useTranslations } from "next-intl";
 
 function ProgressBar({
   progress,
@@ -14,6 +15,7 @@ function ProgressBar({
   batchMode: boolean;
 }) {
   const [batchProgress, setBatchProgress] = React.useState(0);
+  const t_infos = useTranslations("App.Infos.PROGRESS_BAR");
 
   useEffect(() => {
     const progressString = progress.trim().replace(/\n/g, "");
@@ -28,19 +30,30 @@ function ProgressBar({
       <div className="flex flex-col items-center rounded-btn bg-base-100/50 p-4 backdrop-blur-lg">
         <Logo className="spinner mb-4 h-12 w-12" />
         <p className="rounded-full px-2 pb-2 font-bold">
-          {batchMode && `Batch Upscayl In Progress: ${batchProgress}` }
+          {batchMode && `${t_infos("IN_PROGRESS")} ${batchProgress}`}
         </p>
         {progress !== "Hold on..." ? (
-          <div className="radial-progress text-center" style={{ "--value": parseFloat(progress.replace("%", '')) }} role="progressbar" aria-valuenow={ parseFloat(progress.replace("%", '')) } aria-valuemin="0" aria-valuemax="100">
+          <div
+            className="radial-progress text-center"
+            style={{ "--value": parseFloat(progress.replace("%", "")) }}
+            role="progressbar"
+            aria-valuenow={parseFloat(progress.replace("%", ""))}
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
             {progress}
-            {!batchMode && (doubleUpscaylCounter > 0) && "\nPass " + doubleUpscaylCounter}
+            {!batchMode &&
+              doubleUpscaylCounter > 0 &&
+              "\nPass " + doubleUpscaylCounter}
           </div>
-        ) : progress}
+        ) : (
+          progress
+        )}
         <p className="animate-pulse rounded-full px-2 pb-3 text-sm font-medium">
-          Doing the Upscayl magic...
+          {t_infos("PROGRESS_CATCHY")}
         </p>
         <button onClick={stopHandler} className="btn btn-outline">
-          STOP
+          {t_infos("STOP")}
         </button>
       </div>
     </div>

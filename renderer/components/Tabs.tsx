@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import React from "react";
 
 type TabsProps = {
@@ -6,6 +7,7 @@ type TabsProps = {
 };
 
 const Tabs = ({ selectedTab, setSelectedTab }: TabsProps) => {
+  const t_app = useTranslations("App");
   return (
     <div className="tabs-boxed tabs mx-auto mb-2">
       <a
@@ -14,7 +16,7 @@ const Tabs = ({ selectedTab, setSelectedTab }: TabsProps) => {
           setSelectedTab(0);
         }}
       >
-        Upscayl
+        {t_app("Title")}
       </a>
       <a
         className={`tab ${selectedTab === 1 && "tab-active"}`}
@@ -22,7 +24,7 @@ const Tabs = ({ selectedTab, setSelectedTab }: TabsProps) => {
           setSelectedTab(1);
         }}
       >
-        Settings
+        {t_app("Settings")}
       </a>
     </div>
   );

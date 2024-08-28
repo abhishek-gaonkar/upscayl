@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import React from "react";
 export function ThemeSelect() {
   const availableThemes = [
@@ -32,11 +33,12 @@ export function ThemeSelect() {
     { label: "coffee", value: "coffee" },
     { label: "winter", value: "winter" },
   ];
+  const t_infos = useTranslations("App.Infos.THEME");
 
   return (
     <div className="flex flex-col gap-2">
-      <p className="text-sm font-medium">UPSCAYL THEME</p>
-      <select data-choose-theme className="select-primary select">
+      <p className="text-sm font-medium">{t_infos("TITLE")}</p>
+      <select data-choose-theme className="select select-primary">
         {availableThemes.map((theme) => {
           return (
             <option value={theme.value} key={theme.value}>

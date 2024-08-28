@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 type CompressionInputProps = {
   compression: number;
   handleCompressionChange: (arg: any) => void;
@@ -7,16 +9,15 @@ export function CompressionInput({
   compression,
   handleCompressionChange,
 }: CompressionInputProps) {
+  const t_infos = useTranslations("App.Infos.IMAGE_COMPRESSION");
   return (
     <div className="flex flex-col gap-2">
       <div className="flex gap-1 text-sm font-medium uppercase">
-        <p className="shrink-0">Image Compression ({compression}%)</p>
+        <p className="shrink-0">{t_infos("TITLE", { compression })}</p>
       </div>
       {compression > 0 && (
         <p className="text-xs text-base-content/80">
-          PNG compression is lossless, so it might not reduce the file size
-          significantly and higher compression values might affect the
-          performance. JPG and WebP compression is lossy.
+          {t_infos("LOSSLESS_TIP")}
         </p>
       )}
       <input

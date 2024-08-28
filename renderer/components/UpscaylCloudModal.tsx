@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { waitlistCollection } from "../firebase";
 import { doc, setDoc } from "firebase/firestore";
+import { useTranslations } from "next-intl";
 
 const nameRegex = /^[A-Za-z\s.'-]+$/;
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -9,17 +10,22 @@ export const UpscaylCloudModal = ({ show, setShow, setDontShowCloudModal }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
+  const t_app = useTranslations("App");
+  const t_infos = useTranslations("App.Upscayl_Cloud");
+
   return (
     <dialog className={`modal ${show && "modal-open"}`}>
-      <div className="modal-box flex flex-col text-center items-center gap-4">
+      <div className="modal-box flex flex-col items-center gap-4 text-center">
         <button
-          className="absolute top-2 right-4 btn btn-circle"
-          onClick={() => setShow(false)}>
+          className="btn btn-circle absolute right-4 top-2"
+          onClick={() => setShow(false)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
-            viewBox="0 0 24 24">
+            viewBox="0 0 24 24"
+          >
             <rect
               x="0"
               y="0"
@@ -37,11 +43,10 @@ export const UpscaylCloudModal = ({ show, setShow, setDontShowCloudModal }) => {
             />
           </svg>
         </button>
-        <p className="badge badge-neutral text-xs">Coming soon!</p>
-        <p className="text-2xl font-semibold">Introducing Upscayl Cloud!</p>
-        <p className="w-9/12 font-medium text-lg">
-          No more errors, hardware issues, quality compromises or long loading
-          times!
+        <p className="badge badge-neutral text-xs">{t_infos("COMING_SOON")}</p>
+        <p className="text-2xl font-semibold">{t_app("Intro")}</p>
+        <p className="w-9/12 text-lg font-medium">
+          {t_infos("CATCHY_PHRASE_1")}
         </p>
 
         <div className="flex flex-col gap-2 text-start">
@@ -72,7 +77,7 @@ export const UpscaylCloudModal = ({ show, setShow, setDontShowCloudModal }) => {
                 });
               } catch (error) {
                 alert(
-                  `Thank you ${name}! It seems that your email has already been registered :D If that's not the case, please try again.`
+                  `Thank you ${name}! It seems that your email has already been registered :D If that's not the case, please try again.`,
                 );
                 return;
               }
@@ -81,13 +86,14 @@ export const UpscaylCloudModal = ({ show, setShow, setDontShowCloudModal }) => {
               setDontShowCloudModal(true);
               setShow(false);
               alert(
-                "Thank you for joining the waitlist! We will notify you when Upscayl Cloud is ready for you."
+                "Thank you for joining the waitlist! We will notify you when Upscayl Cloud is ready for you.",
               );
             } else {
               alert("Please fill in all the fields correctly.");
             }
-          }}>
-          <div className="gap-2 grid grid-cols-2">
+          }}
+        >
+          <div className="grid grid-cols-2 gap-2">
             <input
               type="text"
               className="input input-bordered"
@@ -105,7 +111,8 @@ export const UpscaylCloudModal = ({ show, setShow, setDontShowCloudModal }) => {
           </div>
           <button
             type="submit"
-            className="bg-success text-success-content rounded-2xl px-4 py-2">
+            className="rounded-2xl bg-success px-4 py-2 text-success-content"
+          >
             Join the waitlist
           </button>
 
@@ -115,7 +122,8 @@ export const UpscaylCloudModal = ({ show, setShow, setDontShowCloudModal }) => {
               setDontShowCloudModal(true);
               setShow(false);
             }}
-            type="button">
+            type="button"
+          >
             DON'T SHOW AGAIN
           </button>
         </form>

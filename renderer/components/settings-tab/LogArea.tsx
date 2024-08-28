@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import React, { useEffect } from "react";
 
 type LogAreaProps = {
@@ -12,6 +13,7 @@ export function LogArea({
   logData,
 }: LogAreaProps) {
   const ref = React.useRef<HTMLElement>(null);
+  const t_infos = useTranslations("App.Infos.LOG_AREA");
 
   useEffect(() => {
     if (ref.current) {
@@ -24,15 +26,19 @@ export function LogArea({
       <div className="flex items-center gap-2">
         <p className="text-sm font-medium">LOGS</p>
         <button className="btn btn-primary btn-xs" onClick={copyOnClickHandler}>
-          {isCopied ? <span>COPIED ✅</span> : <span>COPY LOGS 📋</span>}
+          {isCopied ? (
+            <span>{t_infos("ON_COPY")}</span>
+          ) : (
+            <span>{t_infos("COPY")}</span>
+          )}
         </button>
       </div>
       <code
-        className="rounded-btn relative flex h-52 max-h-52 flex-col gap-3 overflow-y-auto break-all rounded-r-none bg-base-200 p-4 text-xs"
+        className="relative flex h-52 max-h-52 flex-col gap-3 overflow-y-auto break-all rounded-btn rounded-r-none bg-base-200 p-4 text-xs"
         ref={ref}
       >
         {logData.length === 0 && (
-          <p className="text-base-content/70">No logs to show</p>
+          <p className="text-base-content/70">{t_infos("NO_LOGS")}</p>
         )}
 
         {logData.map((logLine: any) => {

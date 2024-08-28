@@ -240,6 +240,7 @@
     "gray-matter": "^4.0.3",
     "jotai": "^2.2.2",
     "lucide-react": "^0.366.0",
+    "next-intl": "^3.17.6",
     "react-compare-slider": "^3.0.1",
     "react-markdown": "^9.0.1",
     "react-resizable-panels": "^2.0.16",
