@@ -11,7 +11,7 @@ export function CustomModelsFolderSelect({
   customModelsPath,
   setCustomModelsPath,
 }: CustomModelsFolderSelectProps) {
-  const t_infos = useTranslations("App.Infos.CUSTOM_MODELS");
+  const t_infos = useTranslations("APP.INFOS.CUSTOM_MODELS");
   return (
     <div className="flex flex-col items-start gap-2">
       <p className="text-sm font-medium">{t_infos("ADD")}</p>

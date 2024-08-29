@@ -10,8 +10,8 @@ export const UpscaylCloudModal = ({ show, setShow, setDontShowCloudModal }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
-  const t_app = useTranslations("App");
-  const t_infos = useTranslations("App.Upscayl_Cloud");
+  const t_app = useTranslations("APP");
+  const t_infos = useTranslations("APP.UPSCAYL_CLOUD");
 
   return (
     <dialog className={`modal ${show && "modal-open"}`}>
@@ -44,20 +44,15 @@ export const UpscaylCloudModal = ({ show, setShow, setDontShowCloudModal }) => {
           </svg>
         </button>
         <p className="badge badge-neutral text-xs">{t_infos("COMING_SOON")}</p>
-        <p className="text-2xl font-semibold">{t_app("Intro")}</p>
+        <p className="text-2xl font-semibold">{t_app("INTRO")}</p>
         <p className="w-9/12 text-lg font-medium">
           {t_infos("CATCHY_PHRASE_1")}
         </p>
 
         <div className="flex flex-col gap-2 text-start">
-          <p>🌐 Upscayl anywhere, anytime, any device</p>
-          <p>☁️ No Graphics Card or hardware required</p>
-          <p>👩 Face Enhancement</p>
-          <p>🦋 10+ models to choose from</p>
-          <p>🏎 5x faster than Upscayl Desktop</p>
-          <p>🎞 Video Upscaling</p>
-          <p>💰 Commercial Usage</p>
-          <p>😴 Upscayl while you sleep</p>
+          <pre style={{ fontFamily: "inherit" }} className="leading-8">
+            {t_infos("CATCHY_PHRASE_2")}
+          </pre>
         </div>
 
         <form
@@ -76,20 +71,16 @@ export const UpscaylCloudModal = ({ show, setShow, setDontShowCloudModal }) => {
                   email,
                 });
               } catch (error) {
-                alert(
-                  `Thank you ${name}! It seems that your email has already been registered :D If that's not the case, please try again.`,
-                );
+                alert(t_infos("ALREADY_REGISTERED", { name }));
                 return;
               }
               setName("");
               setEmail("");
               setDontShowCloudModal(true);
               setShow(false);
-              alert(
-                "Thank you for joining the waitlist! We will notify you when Upscayl Cloud is ready for you.",
-              );
+              alert(t_infos("ADD_SUCCESS"));
             } else {
-              alert("Please fill in all the fields correctly.");
+              alert(t_infos("INCORRECT_FIELDS"));
             }
           }}
         >
@@ -113,7 +104,7 @@ export const UpscaylCloudModal = ({ show, setShow, setDontShowCloudModal }) => {
             type="submit"
             className="rounded-2xl bg-success px-4 py-2 text-success-content"
           >
-            Join the waitlist
+            {t_infos("JOIN_WAITLIST")}
           </button>
 
           <button
@@ -124,13 +115,15 @@ export const UpscaylCloudModal = ({ show, setShow, setDontShowCloudModal }) => {
             }}
             type="button"
           >
-            DON'T SHOW AGAIN
+            {t_infos("DONT_SHOW_AGAIN")}
           </button>
         </form>
       </div>
 
       <form method="dialog" className="modal-backdrop">
-        <button onClick={() => setShow(false)}>close</button>
+        <button onClick={() => setShow(false)}>
+          {t_app("INFOS.DIALOG_BOX.CLOSE")}
+        </button>
       </form>
     </dialog>
   );

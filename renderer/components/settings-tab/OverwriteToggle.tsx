@@ -5,7 +5,7 @@ import React, { useEffect } from "react";
 
 const OverwriteToggle = () => {
   const [overwrite, setOverwrite] = useAtom(overwriteAtom);
-  const t_infos = useTranslations("App.Infos.OVERWRITE_TOGGLE");
+  const t_infos = useTranslations("APP.INFOS.OVERWRITE_TOGGLE");
 
   return (
     <div className="flex flex-col gap-2">

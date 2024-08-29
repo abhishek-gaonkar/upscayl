@@ -5,7 +5,7 @@ import React from "react";
 
 export function TileSizeInput() {
   const [tileSize, setTileSize] = useAtom(tileSizeAtom);
-  const t_infos = useTranslations("App.Infos.CUSTOM_TILE_SIZE");
+  const t_infos = useTranslations("APP.INFOS.CUSTOM_TILE_SIZE");
 
   return (
     <div>

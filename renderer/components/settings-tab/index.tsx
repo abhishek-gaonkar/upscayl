@@ -22,6 +22,7 @@ import { cn } from "@/lib/utils";
 import { CustomResolutionInput } from "./CustomResolutionInput";
 import { TileSizeInput } from "./TileSizeInput";
 import { useTranslations } from "next-intl";
+import LanguageSelect from "./LanguageSelect";
 
 interface IProps {
   batchMode: boolean;
@@ -71,8 +72,8 @@ function SettingsTab({
   const [timeoutId, setTimeoutId] = useState(null);
 
   const { logit } = useLog();
-  const t_errors = useTranslations("App.Errors");
-  const t_app = useTranslations("App");
+  const t_errors = useTranslations("APP.ERRORS");
+  const t_app = useTranslations("APP");
 
   useEffect(() => {
     themeChange(false);
@@ -215,6 +216,9 @@ function SettingsTab({
       {/* THEME SELECTOR */}
       <ThemeSelect />
 
+      {/* LANGUAGE SELECTOR */}
+      <LanguageSelect />
+
       {/* IMAGE FORMAT BUTTONS */}
       <ImageFormatSelect
         batchMode={batchMode}
@@ -259,7 +263,7 @@ function SettingsTab({
               setShow(true);
             }}
           >
-            {t_app("Intro")}
+            {t_app("INTRO")}
           </button>
 
           <UpscaylCloudModal

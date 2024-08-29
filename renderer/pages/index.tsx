@@ -54,9 +54,9 @@ const Home = () => {
   const allowedFileTypes = ["png", "jpg", "jpeg", "webp"];
 
   // i18n strings
-  const t = useTranslations("App");
-  const t_infos = useTranslations("App.Infos");
-  const t_errors = useTranslations("App.Errors");
+  const t = useTranslations("APP");
+  const t_infos = useTranslations("APP.INFOS");
+  const t_errors = useTranslations("APP.ERRORS");
 
   // LOCAL STATES
   const [os, setOs] = useState<"linux" | "mac" | "win" | undefined>(undefined);
@@ -612,7 +612,7 @@ const Home = () => {
       {!showSidebar && (
         <div className="fixed right-2 top-2 z-50 flex items-center justify-center gap-2 rounded-[7px] bg-base-300 px-2 py-1 font-medium text-base-content ">
           <Logo className="w-5" />
-          {t("Title")}
+          {t("TITLE")}
         </div>
       )}
 
@@ -659,7 +659,7 @@ const Home = () => {
               setShowCloudModal(true);
             }}
           >
-            {t("Intro")}
+            {t("INTRO")}
           </button>
         )}
 

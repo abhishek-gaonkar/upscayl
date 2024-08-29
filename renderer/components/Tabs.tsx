@@ -1,5 +1,4 @@
 import { useTranslations } from "next-intl";
-import React from "react";
 
 type TabsProps = {
   selectedTab: number;
@@ -7,7 +6,8 @@ type TabsProps = {
 };
 
 const Tabs = ({ selectedTab, setSelectedTab }: TabsProps) => {
-  const t_app = useTranslations("App");
+  const t_app = useTranslations("APP");
+
   return (
     <div className="tabs-boxed tabs mx-auto mb-2">
       <a
@@ -16,7 +16,7 @@ const Tabs = ({ selectedTab, setSelectedTab }: TabsProps) => {
           setSelectedTab(0);
         }}
       >
-        {t_app("Title")}
+        {t_app("TITLE")}
       </a>
       <a
         className={`tab ${selectedTab === 1 && "tab-active"}`}
@@ -24,7 +24,7 @@ const Tabs = ({ selectedTab, setSelectedTab }: TabsProps) => {
           setSelectedTab(1);
         }}
       >
-        {t_app("Settings")}
+        {t_app("SETTINGS")}
       </a>
     </div>
   );

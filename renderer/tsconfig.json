@@ -26,7 +26,8 @@
     "**/*.ts",
     "**/*.tsx",
     "../app.module.ts",
-    "../common/**/*"
+    "../common/**/*",
+    "messages/locales.ts"
   ],
   "exclude": ["node_modules"]
 }

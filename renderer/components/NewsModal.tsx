@@ -13,7 +13,7 @@ export const NewsModal = ({
   setShow: React.Dispatch<React.SetStateAction<boolean>>;
   news: GrayMatterFile<string>;
 }) => {
-  const t_infos = useTranslations("App.Infos");
+  const t_infos = useTranslations("APP.INFOS");
 
   return (
     <dialog className={`modal ${show && "modal-open"}`}>

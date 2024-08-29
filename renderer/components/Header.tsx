@@ -4,8 +4,8 @@ import Logo from "./icons/Logo";
 import { useTranslations } from "next-intl";
 
 export default function Header({ version }: { version: string }) {
-  const t_app = useTranslations("App");
-  const t_infos = useTranslations("App.Header");
+  const t_app = useTranslations("APP");
+  const t_infos = useTranslations("APP.HEADER");
 
   return (
     <a
@@ -19,7 +19,7 @@ export default function Header({ version }: { version: string }) {
         <Logo className="inline-block h-14 w-14" />
         <div className="flex flex-col justify-center">
           <h1 className="text-3xl font-bold">
-            {t_app("Title")}
+            {t_app("TITLE")}
             <span className="text-xs">
               {version} {featureFlags.APP_STORE_BUILD && "Mac"}
             </span>

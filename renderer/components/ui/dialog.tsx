@@ -4,7 +4,7 @@ import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
-const t_infos = useTranslations("App.Infos.DIALOG_BOX");
+const t_infos = useTranslations("APP.INFOS.DIALOG_BOX");
 
 const Dialog = DialogPrimitive.Root;
 

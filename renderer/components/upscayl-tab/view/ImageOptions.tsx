@@ -20,7 +20,7 @@ const ImageOptions = ({
   const [viewType, setViewType] = useAtom(viewTypeAtom);
   const [lensSize, setLensSize] = useAtom(lensSizeAtom);
 
-  const t_infos = useTranslations("App.Infos.IMAGE_OPTIONS");
+  const t_infos = useTranslations("APP.INFOS.IMAGE_OPTIONS");
 
   useEffect(() => {
     if (!localStorage.getItem("zoomAmount")) {

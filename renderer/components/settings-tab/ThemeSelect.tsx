@@ -33,7 +33,7 @@ export function ThemeSelect() {
     { label: "coffee", value: "coffee" },
     { label: "winter", value: "winter" },
   ];
-  const t_infos = useTranslations("App.Infos.THEME");
+  const t_infos = useTranslations("APP.INFOS.THEME");
 
   return (
     <div className="flex flex-col gap-2">

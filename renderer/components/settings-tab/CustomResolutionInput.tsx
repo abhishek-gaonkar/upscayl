@@ -8,7 +8,7 @@ export function CustomResolutionInput() {
   const [useCustomWidth, setUseCustomWidth] = useAtom(useCustomWidthAtom);
   const [customWidth, setCustomWidth] = useAtom(customWidthAtom);
 
-  const t_infos = useTranslations("App.Infos.CUSTOM_INPUT_RESOLUTION");
+  const t_infos = useTranslations("APP.INFOS.CUSTOM_INPUT_RESOLUTION");
 
   return (
     <div>

@@ -11,7 +11,7 @@ export function ImageFormatSelect({
   saveImageAs,
   setExportType,
 }: ImageFormatSelectProps) {
-  const t_infos = useTranslations("App.Infos.IMAGE_FORMAT");
+  const t_infos = useTranslations("APP.INFOS.IMAGE_FORMAT");
 
   return (
     <div className="flex flex-col gap-2">

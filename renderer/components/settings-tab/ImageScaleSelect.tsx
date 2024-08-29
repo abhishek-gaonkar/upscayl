@@ -14,8 +14,8 @@ export function ImageScaleSelect({
   hideInfo,
 }: ImageScaleSelectProps) {
   const useCustomWidth = useAtomValue(useCustomWidthAtom);
-  const t_infos = useTranslations("App.Infos.IMAGE_SCALE");
-  const t_errors = useTranslations("App.Errors.IMAGE_SCALE_WARN");
+  const t_infos = useTranslations("APP.INFOS.IMAGE_SCALE");
+  const t_errors = useTranslations("APP.ERRORS.IMAGE_SCALE_WARN");
 
   return (
     <div className={`${useCustomWidth && "opacity-50"}`}>

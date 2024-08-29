@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { CSSProperties, useEffect } from "react";
 import Spinner from "../../icons/Spinner";
 import Logo from "@/components/icons/Logo";
 import { useTranslations } from "next-intl";
@@ -15,7 +15,7 @@ function ProgressBar({
   batchMode: boolean;
 }) {
   const [batchProgress, setBatchProgress] = React.useState(0);
-  const t_infos = useTranslations("App.Infos.PROGRESS_BAR");
+  const t_infos = useTranslations("APP.INFOS.PROGRESS_BAR");
 
   useEffect(() => {
     const progressString = progress.trim().replace(/\n/g, "");
@@ -35,11 +35,15 @@ function ProgressBar({
         {progress !== "Hold on..." ? (
           <div
             className="radial-progress text-center"
-            style={{ "--value": parseFloat(progress.replace("%", "")) }}
+            style={
+              {
+                "--value": parseFloat(progress.replace("%", "")),
+              } as React.CSSProperties
+            }
             role="progressbar"
             aria-valuenow={parseFloat(progress.replace("%", ""))}
-            aria-valuemin="0"
-            aria-valuemax="100"
+            aria-valuemin={0}
+            aria-valuemax={100}
           >
             {progress}
             {!batchMode &&

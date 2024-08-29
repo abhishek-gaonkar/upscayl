@@ -7,7 +7,7 @@ type GpuIdInputProps = {
 };
 
 export function GpuIdInput({ gpuId, handleGpuIdChange }) {
-  const t_infos = useTranslations("App.Infos.GPU_ID_INPUT");
+  const t_infos = useTranslations("APP.INFOS.GPU_ID_INPUT");
   return (
     <div className="flex flex-col gap-2">
       <p className="text-sm font-medium">{t_infos("ID")}</p>

@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import React from "react";
 
 export function ResetSettings() {
-  const t_infos = useTranslations("App.Infos.RESET_SETTINGS");
+  const t_infos = useTranslations("APP.INFOS.RESET_SETTINGS");
 
   return (
     <div className="flex flex-col items-start gap-2">

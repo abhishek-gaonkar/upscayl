@@ -2,7 +2,19 @@
  * @type {import('next').NextConfig}
  **/
 
+/**
+ * Define LOCALES
+ * These values should match
+ * with ones in renderer/messages/locales.ts
+ */
+const DEFAULT_LOCALE = "en-US";
+const LOCALES = ["en-US", "ja-JP"];
+
+/**
+ * nextConfig definition
+ */
 const nextConfig = {
+  output: "standalone",
   images: {
     unoptimized: true,
   },
@@ -10,8 +22,8 @@ const nextConfig = {
     externalDir: true,
   },
   i18n: {
-    locales: ["en-US", "zh-CN", "fr-FR", "ja-JP", "es-ES", "ru-RU"],
-    defaultLocale: "en-US",
+    locales: LOCALES,
+    defaultLocale: DEFAULT_LOCALE,
   },
 };
 

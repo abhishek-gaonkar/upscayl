@@ -78,7 +78,7 @@ function LeftPaneImageSteps({
 
   const { logit } = useLog();
   const { toast } = useToast();
-  const t_infos = useTranslations("App.Infos.LEFT_PANE_PROCESS");
+  const t_infos = useTranslations("APP.INFOS.LEFT_PANE_PROCESS");
   const outputHandler = async () => {
     var path = await window.electron.invoke(COMMAND.SELECT_FOLDER);
     if (path !== null) {

@@ -7,8 +7,8 @@ function Footer() {
   const setShowNewsModal = useSetAtom(showNewsModalAtom);
   const news = useAtomValue(newsAtom);
 
-  const t_app = useTranslations("App");
-  const t_infos = useTranslations("App.Footer");
+  const t_app = useTranslations("APP");
+  const t_infos = useTranslations("APP.FOOTER");
 
   return (
     <div className="p-2 text-center text-xs text-base-content/50">
@@ -27,7 +27,7 @@ function Footer() {
           href="https://github.com/upscayl/upscayl"
           target="_blank"
         >
-          {t_app("Title")}
+          {t_app("TITLE")}
         </a>
       </p>
       <p>

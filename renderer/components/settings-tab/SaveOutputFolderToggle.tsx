@@ -10,7 +10,7 @@ export function SaveOutputFolderToggle() {
   const [rememberOutputFolder, setRememberOutputFolder] = useAtom(
     rememberOutputFolderAtom,
   );
-  const t_infos = useTranslations("App.Infos.SAVE_OUTPUT_FOLDER");
+  const t_infos = useTranslations("APP.INFOS.SAVE_OUTPUT_FOLDER");
 
   return (
     <div className="flex flex-col gap-2">

@@ -13,7 +13,7 @@ export function LogArea({
   logData,
 }: LogAreaProps) {
   const ref = React.useRef<HTMLElement>(null);
-  const t_infos = useTranslations("App.Infos.LOG_AREA");
+  const t_infos = useTranslations("APP.INFOS.LOG_AREA");
 
   useEffect(() => {
     if (ref.current) {

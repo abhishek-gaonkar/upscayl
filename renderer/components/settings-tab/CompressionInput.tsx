@@ -9,7 +9,7 @@ export function CompressionInput({
   compression,
   handleCompressionChange,
 }: CompressionInputProps) {
-  const t_infos = useTranslations("App.Infos.IMAGE_COMPRESSION");
+  const t_infos = useTranslations("APP.INFOS.IMAGE_COMPRESSION");
   return (
     <div className="flex flex-col gap-2">
       <div className="flex gap-1 text-sm font-medium uppercase">

@@ -6,7 +6,7 @@ const TurnOffNotificationsToggle = () => {
   const [turnOffNotifications, setTurnOffNotifications] = useAtom(
     turnOffNotificationsAtom,
   );
-  const t_infos = useTranslations("App.Infos.TURN_OFF_NOTIFICATIONS");
+  const t_infos = useTranslations("APP.INFOS.TURN_OFF_NOTIFICATIONS");
 
   return (
     <div className="flex flex-col gap-2">

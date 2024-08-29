@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import React from "react";
 
 function RightPaneInfo({ version, batchMode }) {
-  const t_infos = useTranslations("App.Infos.RIGHT_PANE_INFO");
+  const t_infos = useTranslations("APP.INFOS.RIGHT_PANE_INFO");
 
   return (
     <div className="flex flex-col items-center rounded-btn bg-base-200 p-4">

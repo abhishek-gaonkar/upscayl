@@ -53,3 +53,6 @@ main/utils/*.js
 .env
 *.provisionprofile
 flags.ts
+
+#img Zone Identifiers
+**/*:Zone.Identifier

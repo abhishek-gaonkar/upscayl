@@ -5,21 +5,21 @@
 // !!!!!!!!!!!!!!!!!!!!!KEEP ANYTHING PRESENT WITHIN FLOWER BRACES {variable} - THEY ARE VARIABLES!!!!!!!!!!!!!!!!!!!!!!!
 // Delete these comments starting with "//" as json format does not accept comments
 {
-  "App": {
-    "Title": "Upscayl",
-    "Intro": "Introducing Upscayl Cloud!",
-    "Header": {
+  "APP": {
+    "TITLE": "Upscayl",
+    "INTRO": "Introducing Upscayl Cloud!",
+    "HEADER": {
       "GITHUB_STAR_TT_INFO": "Star us on GitHub 😁",
       "APP_INFO": "AI Image Upscaler"
     },
-    "Footer": {
+    "FOOTER": {
       "NEWS_TITLE": "UPSCAYL NEWS",
       "COPYRIGHT": "Copyright ©",
       "BY": "By ",
       "APP_TEAM": "The Upscayl Team"
     },
-    "Settings": "Settings",
-    "Infos": {
+    "SETTINGS": "SETTINGS",
+    "INFOS": {
       "IMAGE_PROCESSING": {
         "START": "Processing the image...",
         "SCALE_CONVERT": "Scaling and converting image...",
@@ -158,7 +158,7 @@
         "APP_VERSION": "Upscayl v{version}"
       }
     },
-    "Errors": {
+    "ERRORS": {
       "GPU_ERROR": {
         "TITLE": "GPU Error",
         "DESC": "Ran into an issue with the GPU. Please read the docs for troubleshooting! ({data})"
@@ -203,11 +203,15 @@
         "EMAIL_DEV": "📧 EMAIL DEVELOPER"
       }
     },
-    "Upscayl_Cloud": {
+    "UPSCAYL_CLOUD": {
       "COMING_SOON": "Coming soon!",
       "CATCHY_PHRASE_1": "No more errors, hardware issues, quality compromises or long loading times!",
-      "CATCHY_PHRASE_2": ""
+      "CATCHY_PHRASE_2": "🌐 Upscayl anywhere, anytime, any device\n☁️ No Graphics Card or hardware required\n👩 Face Enhancement\n🦋 10+ models to choose from\n🏎 5x faster than Upscayl Desktop\n🎞 Video Upscaling\n💰 Commercial Usage\n😴 Upscayl while you sleep",
+      "ALREADY_REGISTERED": "Thank you {name}! It seems that your email has already been registered :D If that's not the case, please try again.",
+      "ADD_SUCCESS": "Thank you for joining the waitlist! We will notify you when Upscayl Cloud is ready for you.",
+      "INCORRECT_FIELDS": "Please fill in all the fields correctly.",
+      "JOIN_WAITLIST": "Join the waitlist",
+      "DONT_SHOW_AGAIN": "DON'T SHOW AGAIN"
     }
   }
 }
-
