@@ -91,6 +91,9 @@
       "THEME": {
         "TITLE": "UPSCAYL THEME"
       },
+      "LANGUAGE": {
+        "TITLE": "UPSCAYL LANGUAGE"
+      },
       "CUSTOM_TILE_SIZE": {
         "TITLE": "CUSTOM TILE SIZE",
         "DESC": "Use a custom tile size for segmenting the image. This can help process images faster by reducing the number of tiles generated."
