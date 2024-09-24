@@ -195,7 +195,8 @@
     "INVALID_IMAGE_ERROR": {
       "TITLE": "Imagen inválida",
       "DESCRIPTION": "Por favor, selecciona una imagen con una extensión válida como PNG, JPG, JPEG, JFIF o WEBP.",
-      "ADDITIONAL_DESCRIPTION": "Por favor, arrastra y suelta una imagen"
+      "ADDITIONAL_DESCRIPTION": "Por favor, arrastra y suelta una imagen",
+      "CLIPBOARD_DESCRIPTION": "No Image file found in Clipboard to paste!"
     },
     "NO_IMAGE_ERROR": {
       "TITLE": "No se ha seleccionado imagen",

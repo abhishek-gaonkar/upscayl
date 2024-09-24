@@ -195,7 +195,8 @@
     "INVALID_IMAGE_ERROR": {
       "TITLE": "图片无效",
       "DESCRIPTION": "请选择一个扩展名为 PNG、JPG、JPEG、JFIF 或 WEBP 的有效图片",
-      "ADDITIONAL_DESCRIPTION": "请拖放图片"
+      "ADDITIONAL_DESCRIPTION": "请拖放图片",
+      "CLIPBOARD_DESCRIPTION": "No Image file found in Clipboard to paste!"
     },
     "NO_IMAGE_ERROR": {
       "TITLE": "未选择图片",

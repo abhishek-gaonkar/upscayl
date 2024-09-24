@@ -195,7 +195,8 @@
     "INVALID_IMAGE_ERROR": {
       "TITLE": "Неверное изображение",
       "DESCRIPTION": "Пожалуйста, выберите изображение с правильным расширением, таким как PNG, JPG, JPEG, JFIF или WEBP.",
-      "ADDITIONAL_DESCRIPTION": "Пожалуйста, перетащите изображение"
+      "ADDITIONAL_DESCRIPTION": "Пожалуйста, перетащите изображение",
+      "CLIPBOARD_DESCRIPTION": "No Image file found in Clipboard to paste!"
     },
     "NO_IMAGE_ERROR": {
       "TITLE": "Изображение не выбрано",

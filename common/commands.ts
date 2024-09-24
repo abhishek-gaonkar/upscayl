@@ -25,6 +25,9 @@ const COMMAND = {
   OS: "Get OS",
   SCALING_AND_CONVERTING: "Adding some finishing touches",
   UPSCAYL_ERROR: "Upscaling Error",
+  PASTE_IMAGE: "Paste Image",
+  PASTE_IMAGE_SUCCESS: "Successfully pasted image from clipboard",
+  PASTE_IMAGE_ERROR: "Failed to paste image from clipboard",
 };
 
 export default COMMAND;

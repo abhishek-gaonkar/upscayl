@@ -505,27 +505,78 @@ const Home = () => {
   const handlePaste = (e) => {
     resetImagePaths();
     e.preventDefault();
-    const type = e.clipboardData.items[0].type;
-    const filePath = e.clipboardData.files[0].path;
-    const extension = e.clipboardData.files[0].name.split(".").at(-1);
-    logit("📋 Pasted file: ", JSON.stringify({ type, filePath, extension }));
-    if (
-      !type.includes("image") &&
-      !allowedFileTypes.includes(extension.toLowerCase())
-    ) {
+    let pasteError = false;
+    if (e.clipboardData.files.length) {
+      const fileObject = e.clipboardData.files[0];
+      const currentDate = new Date(Date.now());
+      const currentTime = `${currentDate.getHours()}-${currentDate.getMinutes()}-${currentDate.getSeconds()}`;
+      const fileName = `${currentTime}-${fileObject.name}`;
+      const file = {
+        name: fileName,
+        extension: fileName.split(".").pop(),
+        size: fileObject.size,
+        type: fileObject.type.split("/")[0],
+        encodedBuffer: "",
+      };
+      if (file.type === "image" && allowedFileTypes.includes(file.extension)) {
+        logit("📋 Pasted file: ", JSON.stringify(file));
+        const reader = new FileReader();
+        reader.onload = async (event) => {
+          const result = event.target?.result;
+          if (typeof result === "string") {
+            file.encodedBuffer = Buffer.from(result, "utf-8").toString(
+              "base64",
+            );
+          } else if (result instanceof ArrayBuffer) {
+            file.encodedBuffer = Buffer.from(new Uint8Array(result)).toString(
+              "base64",
+            );
+          } else {
+            pasteError = true;
+            throw new Error("Unsupported Data Type");
+          }
+          window.electron.send(COMMAND.PASTE_IMAGE, file);
+        };
+        reader.readAsArrayBuffer(fileObject);
+      } else {
+        pasteError = true;
+      }
+    } else {
+      pasteError = true;
+    }
+    if (pasteError) {
       toast({
         title: t("ERRORS.INVALID_IMAGE_ERROR.TITLE"),
-        description: t("ERRORS.INVALID_IMAGE_ERROR.ADDITIONAL_DESCRIPTION"),
+        description: t("ERRORS.INVALID_IMAGE_ERROR.CLIPBOARD_DESCRIPTION"),
       });
-    } else {
-      setImagePath(filePath);
-      var dirname = getDirectoryFromPath(filePath);
-      logit("🗂 Setting output path: ", dirname);
-      if (!rememberOutputFolder) {
-        setOutputPath(dirname);
-      }
     }
   };
+
+  useEffect(() => {
+    const handlePasteEvent = (e) => handlePaste(e);
+    window.addEventListener("paste", handlePasteEvent);
+    window.electron.on(
+      COMMAND.PASTE_IMAGE_SUCCESS,
+      (_: any, output: string[]) => {
+        let [imageFilePath, homeDirectory] = output;
+        setImagePath(imageFilePath);
+        var dirname = getDirectoryFromPath(homeDirectory, false);
+        logit("🗂 Setting output path: ", dirname);
+        if (!rememberOutputFolder) {
+          setOutputPath(dirname);
+        }
+      },
+    );
+    window.electron.on(COMMAND.PASTE_IMAGE_ERROR, (_: any, error: string) => {
+      toast({
+        title: t("ERRORS.NO_IMAGE_ERROR.TITLE"),
+        description: error,
+      });
+    });
+    return () => {
+      window.removeEventListener("paste", handlePasteEvent);
+    };
+  }, []);
 
   const upscaylHandler = async () => {
     logit("🔄 Resetting Upscaled Image Path");
@@ -728,7 +779,6 @@ const Home = () => {
             selectImageHandler();
           }
         }}
-        onPaste={(e) => handlePaste(e)}
       >
         {window.electron.platform === "mac" && (
           <div className="mac-titlebar absolute top-0 h-8 w-full"></div>

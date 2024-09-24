@@ -195,7 +195,8 @@
     "INVALID_IMAGE_ERROR": {
       "TITLE": "Image invalide",
       "DESCRIPTION": "Veuillez sélectionner une image avec une extension valide comme PNG, JPG, JPEG, JFIF ou WEBP.",
-      "ADDITIONAL_DESCRIPTION": "Veuillez glisser-déposer une image"
+      "ADDITIONAL_DESCRIPTION": "Veuillez glisser-déposer une image",
+      "CLIPBOARD_DESCRIPTION": "No Image file found in Clipboard to paste!"
     },
     "NO_IMAGE_ERROR": {
       "TITLE": "Aucune image sélectionnée",
